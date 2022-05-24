@@ -9,7 +9,7 @@ import (
 
 //GetAllUsers returns list of Users
 func (c Client) GetAllUsers() ([]User, error) {
-	req, err := http.NewRequest("GET", fmt.Sprintf("%s/Users/getAllUsers", c.HostURL), nil)
+	req, err := http.NewRequest("GET", fmt.Sprintf("%s/users", c.HostURL), nil)
 	if err != nil {
 		return nil, err
 	}
@@ -35,7 +35,7 @@ func (c *Client) CreateUser(User User) (*User, error) {
 		return nil, err
 	}
 
-	req, err := http.NewRequest("POST", fmt.Sprintf("%s/Users/createNewUser", c.HostURL), strings.NewReader(string(avg)))
+	req, err := http.NewRequest("POST", fmt.Sprintf("%s/users", c.HostURL), strings.NewReader(string(avg)))
 	req.Header.Add("Content-Type", "application/json")
 	if err != nil {
 		return nil, err
@@ -61,7 +61,7 @@ func (c *Client) UpdateUserByName(User User) (*UpdateResult, error) {
 		return nil, err
 	}
 
-	req, err := http.NewRequest("PUT", fmt.Sprintf("%s/Users/updateUserByName", c.HostURL), strings.NewReader(string(avg)))
+	req, err := http.NewRequest("PUT", fmt.Sprintf("%s/users/updateUserByName", c.HostURL), strings.NewReader(string(avg)))
 	req.Header.Add("Content-Type", "application/json")
 	if err != nil {
 		return nil, err
@@ -83,7 +83,7 @@ func (c *Client) UpdateUserByName(User User) (*UpdateResult, error) {
 
 //DeleteUserByName will delete an User
 func (c *Client) DeleteUserByName(UserName string) (*DeleteResult, error) {
-	req, err := http.NewRequest("DELETE", fmt.Sprintf("%s/Users/deleteUserByName", c.HostURL), http.NoBody)
+	req, err := http.NewRequest("DELETE", fmt.Sprintf("%s/users/deleteUserByName", c.HostURL), http.NoBody)
 	req.URL.Query().Add("name", UserName)
 	if err != nil {
 		return nil, err

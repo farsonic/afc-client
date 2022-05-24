@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-// Default avengers-backend URL
+// Default URL
 const HostURL string = "http://localhost:8000"
 
 type Client struct {
@@ -26,7 +26,6 @@ func NewClient(host *string) (*Client, error) {
 	return &c, nil
 }
 
-//DoRequest will actually make a call to avengers-backend
 func (c *Client) DoRequest(req *http.Request) ([]byte, error) {
 	res, err := c.HTTPClient.Do(req)
 	if err != nil {

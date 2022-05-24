@@ -1,4 +1,4 @@
-package avengersclient
+package afcclient
 
 import (
 	"fmt"

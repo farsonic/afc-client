@@ -1,10 +1,13 @@
-package avengersclient
+package afcclient
 
-type Avenger struct {
-	ID     string `json:"_id,omitempty"`
-	Name   string `json:"name,omitempty"`
-	Alias  string `json:"alias,omitempty"`
-	Weapon string `json:"weapon,omitempty"`
+type User struct {
+	ID         string `json:"auth_source_uuid,omitempty"`
+	SourceName string `json:"auth_source_name,omitempty"`
+	DistName   string `json:"distinguished_name,omitempty"`
+	Role       string `json:"role,omitempty"`
+	TokenLife  string `json:"token_lifetime,omitempty"`
+	UserName   string `json:"username,omitempty"`
+	UUID       string `json:"uuid,omitempty"`
 }
 
 type UpdateResult struct {
@@ -18,5 +21,5 @@ type DeleteResult struct {
 }
 
 type InsertedResult struct {
-	InsertedID string `json:"insertedID,omitempty"` //example "61dd1635b9fd2fb647c16b09"
+	InsertedID string `json:"insertedID,omitempty"`
 }

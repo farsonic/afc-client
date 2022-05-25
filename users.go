@@ -1,5 +1,6 @@
 package afcclient
 
+//external binary to talk to AFC
 import (
 	"encoding/json"
 	"fmt"

@@ -13,6 +13,7 @@ func (c Client) GetAllUsers() ([]User, error) {
 	req, err := http.NewRequest("GET", fmt.Sprintf("%s/api/v1/users", c.HostURL), nil)
 	req.Header.Add("Content-Type", "application/json")
 	req.Header.Add("Authorization", fmt.Sprint("Bearer", c.Token))
+	req.Header.Add("Accept", "/*/")
 
 	if err != nil {
 		return nil, err
@@ -28,7 +29,7 @@ func (c Client) GetAllUsers() ([]User, error) {
 	if err != nil {
 		return nil, err
 	}
-
+	fmt.Println("response Headers:", body)
 	return Users, nil
 }
 

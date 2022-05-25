@@ -9,6 +9,7 @@ import (
 
 // Default URL
 const HostURL string = "http://localhost:8000"
+const Token string = "137f049286bb6330a30cd2ca4926ba072857a825eba0b397377e875c28efbfb9ffde16c87188d9b9355352b14bcd9d1f"
 
 type Client struct {
 	HostURL    string

@@ -13,6 +13,7 @@ const Token string = "137f049286bb6330a30cd2ca4926ba072857a825eba0b397377e875c28
 
 type Client struct {
 	HostURL    string
+	Token      string
 	HTTPClient *http.Client
 }
 
@@ -20,6 +21,7 @@ func NewClient(host *string) (*Client, error) {
 	c := Client{
 		HTTPClient: &http.Client{Timeout: 10 * time.Second},
 		HostURL:    HostURL,
+		Token:      Token,
 	}
 	if host != nil {
 		c.HostURL = *host

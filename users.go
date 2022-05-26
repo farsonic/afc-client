@@ -11,8 +11,8 @@ import (
 //GetAllUsers returns list of Users
 func (c Client) GetAllUsers() ([]User, error) {
 	req, err := http.NewRequest("GET", fmt.Sprintf("%s/api/v1/users", c.HostURL), nil)
-	req.Header.Add("Authorization", "Bearer 91d6b5b6d39155cca75112c832fc86113883d6ee1253a0d0f4d41870f0a877affbfb76bd1a5fbce7e364abd485d492aa")
-	req.Header.Add("Content-Type", "application/json")
+	req.Header.Set("Content-Type", "application/json")
+	req.Header.Set("Authorization", "Bearer 91d6b5b6d39155cca75112c832fc86113883d6ee1253a0d0f4d41870f0a877affbfb76bd1a5fbce7e364abd485d492aa")
 	req.Header.Add("Accept", "application/json")
 	//req.Header.Add("Authorization", fmt.Sprint("Bearer", c.Token))
 
@@ -34,7 +34,7 @@ func (c Client) GetAllUsers() ([]User, error) {
 	return Users, nil
 }
 
-//CreateUser will create an User
+//CreateUser will create a User
 func (c *Client) CreateUser(User User) (*User, error) {
 	avg, err := json.Marshal(User)
 	if err != nil {

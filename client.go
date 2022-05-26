@@ -11,23 +11,24 @@ import (
 const HostURL string = "http://localhost:8000"
 const Token string = "abcd"
 
+//const host string = "http://localhost:8000"
+//const token string = "abcd"
+//HostURL = *host
+//Token = *token
 //
 
 type Client struct {
+	HTTPClient *http.Client
 	HostURL    string
 	Token      string
-	HTTPClient *http.Client
 }
 
-func NewClient(host *string) (*Client, error) {
+func NewClient(host *string, token *string) (*Client, error) {
 	c := Client{
 		HTTPClient: &http.Client{Timeout: 10 * time.Second},
-		HostURL:    HostURL,
-		Token:      Token,
 	}
-	if host != nil {
-		c.HostURL = *host
-	}
+	c.HostURL = *host
+	c.Token = *token
 	return &c, nil
 }
 

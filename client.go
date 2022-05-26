@@ -19,7 +19,7 @@ type Client struct {
 	HTTPClient *http.Client
 }
 
-func NewClient(host *string) (token *string) (*Client, error) {
+func NewClient(host *string, token *string) (*Client, error) {
 	c := Client{
 		HTTPClient: &http.Client{Timeout: 10 * time.Second},
 		HostURL:    HostURL,
